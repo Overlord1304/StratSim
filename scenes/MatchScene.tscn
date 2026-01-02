@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://x3bv15cmbs7r"]
+[gd_scene load_steps=2 format=3 uid="uid://x3bv15cmbs7r"]
+
+[ext_resource type="Script" uid="uid://pbifwmv12new" path="res://scripts/match_scene.gd" id="1_3ffy2"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +9,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3ffy2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 471.0
+offset_bottom = 535.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 25.0
+offset_right = 794.0
+offset_bottom = 104.0
+size_flags_vertical = 6
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 12.0
+offset_right = 1102.0
+offset_bottom = 517.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 543.0
+offset_right = 948.0
+offset_bottom = 626.0
+size_flags_vertical = 8

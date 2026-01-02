@@ -1,11 +1,20 @@
-extends Node
+extends Strategy
+class_name GrimTrigger
 
+var triggered = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _init():
+	nam = "Grim Trigger"
 
+func reset() -> void:
+	super.reset()
+	triggered = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func decide() -> String:
+	if "D" in history_opponent:
+		triggered = true
+
+	if triggered:
+		return "D"
+	else:
+		return "C"

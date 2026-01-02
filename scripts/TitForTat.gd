@@ -1,11 +1,10 @@
-extends Node
+extends Strategy
+class_name TitForTat
 
+func _init():
+	nam = "Tit for Tat"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func decide() -> String:
+	if history_opponent.is_empty():
+		return "C"
+	return history_opponent.back()

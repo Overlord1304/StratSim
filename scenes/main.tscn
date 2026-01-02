@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://btyq0o2ygkl7g"]
+[gd_scene load_steps=28 format=3 uid="uid://btyq0o2ygkl7g"]
 
 [ext_resource type="Script" uid="uid://4uqb4u1dqrao" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://d3xgkyan707li" path="res://sprites/Sprite-0005.png" id="2_sugp2"]
@@ -59,6 +59,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbj1t"]
+bg_color = Color(0.44313726, 0.44313726, 0.44313726, 0.5647059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sugp2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
@@ -111,34 +118,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbj1t"]
-bg_color = Color(0.35686275, 0.35686275, 0.35686275, 0.7176471)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muem4"]
-bg_color = Color(0.35686275, 0.35686275, 0.35686275, 0.7176471)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
-bg_color = Color(0.35686275, 0.35686275, 0.35686275, 0.7176471)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
-bg_color = Color(0.35686275, 0.35686275, 0.35686275, 0.7176471)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="Animation" id="Animation_sugp2"]
 length = 0.001
@@ -261,7 +240,9 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_85g3d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_choun")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ya4ey")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jbj1t")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sugp2")
+disabled = true
 toggle_mode = true
 text = "READY UP!!"
 
@@ -303,6 +284,7 @@ offset_top = 20.0
 offset_right = 59.00006
 offset_bottom = 66.0
 scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_colors/font_hover_color = Color(0.6610809, 0.6610809, 0.66108185, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
@@ -318,6 +300,7 @@ offset_top = 20.0
 offset_right = 180.00006
 offset_bottom = 66.0
 scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
@@ -351,7 +334,7 @@ offset_top = 20.0
 offset_right = 422.00006
 offset_bottom = 66.0
 scale = Vector2(2.25, 2.25)
-theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
@@ -372,28 +355,6 @@ offset_right = 1152.001
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eb6dy")
-
-[node name="ReadyS2" type="Button" parent="Panel/S2"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -135.99994
-offset_top = -91.0
-offset_right = 117.00006
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("3_sugp2")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_85g3d")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_choun")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ya4ey")
-toggle_mode = true
-text = "READY UP!!"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/S2"]
 layout_mode = 1
@@ -433,11 +394,13 @@ offset_top = 20.0
 offset_right = 59.00006
 offset_bottom = 66.0
 scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_colors/font_hover_color = Color(0.6610809, 0.6610809, 0.66108185, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
-theme_override_styles/focus = SubResource("StyleBoxFlat_jbj1t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jyhfs")
+toggle_mode = true
 text = "TFT"
 
 [node name="AC" type="Button" parent="Panel/S2/Panel"]
@@ -447,11 +410,13 @@ offset_top = 20.0
 offset_right = 180.00006
 offset_bottom = 66.0
 scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
-theme_override_styles/focus = SubResource("StyleBoxFlat_muem4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+toggle_mode = true
 text = "AC
 "
 
@@ -462,11 +427,13 @@ offset_top = 20.0
 offset_right = 301.00006
 offset_bottom = 66.0
 scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
-theme_override_styles/focus = SubResource("StyleBoxFlat_dp3eg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tefeu")
+toggle_mode = true
 text = "AD
 "
 
@@ -477,18 +444,45 @@ offset_top = 20.0
 offset_right = 422.00006
 offset_bottom = 66.0
 scale = Vector2(2.25, 2.25)
-theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0ld40")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o6xl0")
+toggle_mode = true
 text = "GT
 "
+
+[node name="ReadyS2" type="Button" parent="Panel/S2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.99994
+offset_top = -91.0
+offset_right = 117.00006
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_85g3d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_choun")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ya4ey")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jbj1t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sugp2")
+disabled = true
+toggle_mode = true
+text = "READY UP!!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
 libraries = {
 &"": SubResource("AnimationLibrary_tbgi4")
 }
 
-[connection signal="button_up" from="Panel/Play" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Panel/Play" to="." method="_on_play_button_up"]
