@@ -16,9 +16,9 @@ func _on_play_button_up() -> void:
 func _ready():
 	
 	strategies = [
+		preload("res://scripts/TitForTat.gd"),
 		preload("res://scripts/AlwaysCooperate.gd"),
 		preload("res://scripts/AlwaysDefect.gd"),
-		preload("res://scripts/TitForTat.gd"),
 		preload("res://scripts/GrimTrigger.gd")
 	]
 

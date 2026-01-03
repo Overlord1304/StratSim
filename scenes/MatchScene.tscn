@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://x3bv15cmbs7r"]
+[gd_scene load_steps=5 format=3 uid="uid://x3bv15cmbs7r"]
 
 [ext_resource type="Script" uid="uid://pbifwmv12new" path="res://scripts/match_scene.gd" id="1_3ffy2"]
+[ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="2_kqmhu"]
+[ext_resource type="PackedScene" uid="uid://w32nai537ijr" path="res://scenes/matchcircles.tscn" id="2_n7i72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7i72"]
+bg_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,32 +15,102 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ffy2")
+move_bubble_scene = ExtResource("2_n7i72")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_top = 26.0
-offset_right = 471.0
-offset_bottom = 535.0
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n7i72")
 
-[node name="Label" type="Label" parent="."]
+[node name="RoundLabel" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 336.0
+offset_left = 231.0
 offset_top = 25.0
-offset_right = 794.0
+offset_right = 689.0
 offset_bottom = 104.0
 size_flags_vertical = 6
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kqmhu")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 600.0
-offset_top = 12.0
-offset_right = 1102.0
-offset_bottom = 517.0
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 172.0
-offset_top = 543.0
-offset_right = 948.0
-offset_bottom = 626.0
+[node name="SkipButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -108.0
+offset_right = -42.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 8
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kqmhu")
+theme_override_font_sizes/font_size = 48
+text = "Skip"
+
+[node name="ScoreS1Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 142.0
+offset_right = 515.0
+offset_bottom = 221.0
+size_flags_vertical = 6
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kqmhu")
+theme_override_font_sizes/font_size = 48
+
+[node name="ScoreS2Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 114.0
+offset_right = 1118.0
+offset_bottom = 193.0
+size_flags_vertical = 6
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kqmhu")
+theme_override_font_sizes/font_size = 48
+
+[node name="EndButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -108.0
+offset_right = 252.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kqmhu")
+theme_override_font_sizes/font_size = 48
+text = "End"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.071
+anchor_bottom = 0.17400001
+offset_left = 295.0
+offset_top = 250.0
+offset_right = 743.208
+offset_bottom = 400.248
+
+[node name="MovesContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 1

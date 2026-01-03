@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://w32nai537ijr"]
+
+[ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="1_8o3e7"]
+[ext_resource type="Script" uid="uid://cswfm3lphrf62" path="res://scripts/match_circles.gd" id="1_ju3da"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thel6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy1tw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MoveBubble" type="Control"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_ju3da")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="BubbleA" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_thel6")
+
+[node name="Label" type="Label" parent="HBoxContainer/BubbleA"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_8o3e7")
+theme_override_font_sizes/font_size = 24
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BubbleB" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_oy1tw")
+
+[node name="Label" type="Label" parent="HBoxContainer/BubbleB"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_8o3e7")
+theme_override_font_sizes/font_size = 24
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
