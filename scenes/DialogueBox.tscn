@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://drpfcdgh2qmmp"]
+
+[ext_resource type="Script" uid="uid://bintpudlc15ke" path="res://scripts/dialogue_box.gd" id="1_giuoe"]
+[ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="1_r2og1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giuoe"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n5wf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe8jb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwuxu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_giuoe")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -232.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_giuoe")
+
+[node name="DialogueText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 1135.0
+offset_bottom = 221.0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_r2og1")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 3
+
+[node name="NextButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 230.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_1n5wf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pe8jb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nwuxu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 421.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.37254903)
+
+[connection signal="pressed" from="Panel/NextButton" to="." method="_on_next_button_pressed"]

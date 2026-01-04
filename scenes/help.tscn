@@ -123,3 +123,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_2by0i")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oar4r")
 text = "▶"
 expand_icon = true
+
+[connection signal="button_up" from="Panel/back" to="." method="_on_back_button_up"]

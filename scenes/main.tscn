@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://btyq0o2ygkl7g"]
+[gd_scene load_steps=33 format=3 uid="uid://btyq0o2ygkl7g"]
 
 [ext_resource type="Script" uid="uid://4uqb4u1dqrao" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://drpfcdgh2qmmp" path="res://scenes/DialogueBox.tscn" id="3_jyhfs"]
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="3_sugp2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
@@ -431,6 +432,39 @@ toggle_mode = true
 text = "WSLS
 "
 
+[node name="T" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 141.0
+offset_right = 301.00006
+offset_bottom = 187.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tefeu")
+toggle_mode = true
+text = "T
+"
+
+[node name="J" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 141.0
+offset_right = 422.00006
+offset_bottom = 187.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o6xl0")
+toggle_mode = true
+text = "J"
+
 [node name="back" type="Button" parent="Panel/S1"]
 layout_mode = 1
 anchors_preset = 8
@@ -597,6 +631,39 @@ toggle_mode = true
 text = "WSLS
 "
 
+[node name="T" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 141.0
+offset_right = 301.00006
+offset_bottom = 187.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tefeu")
+toggle_mode = true
+text = "T
+"
+
+[node name="J" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 141.0
+offset_right = 422.00006
+offset_bottom = 187.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o6xl0")
+toggle_mode = true
+text = "J"
+
 [node name="ReadyS2" type="Button" parent="Panel/S2"]
 layout_mode = 1
 anchors_preset = 7
@@ -687,6 +754,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0wfyh")
 text = "∴"
 expand_icon = true
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_jyhfs")]
+visible = false
 
 [connection signal="button_up" from="Panel/Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="Panel/S1/back" to="." method="_on_back_button_up"]

@@ -4,12 +4,31 @@ extends Node2D
 @onready var s2_buttons = $Panel/S2/Panel.get_children()
 @onready var s1_ready = $Panel/S1/ReadyS1
 @onready var s2_ready = $Panel/S2/ReadyS2
-
+@onready var dialogue_box = $DialogueBox
+var dialogue = [
+	{"text": "Welcome to StratSim! A simulation based on Prisoner's Dilemma, a famous problem in game theory"},
+	{"text": "Please look at the Help Section and the Strategies Guide Section before you click Play!"}
+]
 var strategies := []
 var s1_selected = -1
 var s2_selected = -1
 var s1_ready_state = false
 var s2_ready_state = false
+const SAVE_PATH = "user://save_data.save"
+var tut_dialogue_seen = false
+
+
+func _load_save():
+	if FileAccess.file_exists(SAVE_PATH):
+		var file = FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.READ)
+		var data = file.get_var()
+		tut_dialogue_seen = data.get("tut_dialogue_seen", false)
+		file.close()
+
+func _save():
+	var file = FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.WRITE)
+	file.store_var({"tut_dialogue_seen": tut_dialogue_seen})
+	file.close()
 func _on_play_button_up() -> void:
 	$Panel/AnimationPlayer.play("close")
 	$Panel/Help.disabled = true
@@ -24,6 +43,11 @@ func _on_back_button_up() -> void:
 	$Panel/Help.disabled = false
 	$Panel/StratsInfo.disabled = false
 func _ready():
+	_load_save()
+	if !tut_dialogue_seen:
+		dialogue_box.start_dialogue(dialogue)
+		tut_dialogue_seen = true
+		_save()
 	if Global.returning:
 		$Panel/AnimationPlayer.play("close")
 		$Panel/StratsInfo.disabled = true
@@ -35,7 +59,9 @@ func _ready():
 		preload("res://scripts/AlwaysDefect.gd"),
 		preload("res://scripts/GrimTrigger.gd"),
 		preload("res://scripts/Random.gd"),
-		preload("res://scripts/Win-Stay-Lose-Shift.gd")
+		preload("res://scripts/Win-Stay-Lose-Shift.gd"),
+		preload("res://scripts/Tester.gd"),
+		preload("res://scripts/Joss.gd")
 	]
 
 	
