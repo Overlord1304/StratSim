@@ -6,6 +6,7 @@ class_name Match
 @onready var score_s1_label = $Panel/ScoreS1Label
 @onready var score_s2_label = $Panel/ScoreS2Label
 @onready var moves_container = $Panel/ScrollContainer/MovesContainer
+@onready var scroll_container = $Panel/ScrollContainer
 @export var move_bubble_scene: PackedScene
 var s1
 var s2
@@ -22,6 +23,7 @@ const payoff = {
 }
 
 func _ready():
+	randomize()
 	s1 = Global.selected_s1
 	s2 = Global.selected_s2
 
@@ -33,7 +35,7 @@ func _ready():
 
 	skip_button.pressed.connect(skip_to_results)
 	end_button.pressed.connect(go_back)
-
+	
 	play_next_round()
 
 
@@ -72,6 +74,7 @@ func run_match(a, b, rounds) -> Dictionary:
 
 func play_next_round():
 	if current_round >= match_result["log"].size():
+
 		end_button.visible = true
 		return
 
@@ -92,7 +95,9 @@ func add_move_bubble(a_move:String, b_move:String):
 	var bubble = move_bubble_scene.instantiate()
 	moves_container.add_child(bubble)
 	bubble.set_moves(a_move, b_move)
-
+	await get_tree().process_frame
+	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+	
 
 func update_scores(a:int, b:int):
 	score_s1_label.text = "%s: %d" % [s1.nam, a]
@@ -101,8 +106,10 @@ func update_scores(a:int, b:int):
 
 func skip_to_results():
 	update_scores(match_result["scoreA"], match_result["scoreB"])
+
 	end_button.visible = true
 	current_round = match_result["log"].size()
 
 func go_back():
+	Global.returning = true
 	get_tree().change_scene_to_file("res://scenes/main.tscn")

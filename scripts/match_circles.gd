@@ -13,10 +13,10 @@ func set_moves(a_move: String, b_move: String) -> void:
 	label_a.text = a_move
 	label_b.text = b_move
 
-	apply_style(bubble_a, a_move)
-	apply_style(bubble_b, b_move)
+	circlifier(bubble_a, a_move)
+	circlifier(bubble_b, b_move)
 
-func apply_style(panel: Panel, move: String) -> void:
+func circlifier(panel: Panel, move: String) -> void:
 	var style := StyleBoxFlat.new()
 	style.bg_color = COLOR_C if move == "C" else COLOR_D
 

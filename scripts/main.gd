@@ -12,14 +12,30 @@ var s1_ready_state = false
 var s2_ready_state = false
 func _on_play_button_up() -> void:
 	$Panel/AnimationPlayer.play("close")
+	$Panel/Help.disabled = true
+	$Panel/StratsInfo.disabled = true
+func _on_help_button_up() -> void:
+	get_tree().change_scene_to_file("res://scenes/help.tscn")
 
+func _on_strats_info_button_up() -> void:
+	get_tree().change_scene_to_file("res://scenes/stratsinfo1.tscn")
+func _on_back_button_up() -> void:
+	$Panel/AnimationPlayer.play("open")
+	$Panel/Help.disabled = false
+	$Panel/StratsInfo.disabled = false
 func _ready():
-	
+	if Global.returning:
+		$Panel/AnimationPlayer.play("close")
+		$Panel/StratsInfo.disabled = true
+		$Panel/Help.disabled = true
+		Global.returning = false
 	strategies = [
 		preload("res://scripts/TitForTat.gd"),
 		preload("res://scripts/AlwaysCooperate.gd"),
 		preload("res://scripts/AlwaysDefect.gd"),
-		preload("res://scripts/GrimTrigger.gd")
+		preload("res://scripts/GrimTrigger.gd"),
+		preload("res://scripts/Random.gd"),
+		preload("res://scripts/Win-Stay-Lose-Shift.gd")
 	]
 
 	

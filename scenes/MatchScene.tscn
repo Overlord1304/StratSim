@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pbifwmv12new" path="res://scripts/match_scene.gd" id="1_3ffy2"]
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="2_kqmhu"]
-[ext_resource type="PackedScene" uid="uid://w32nai537ijr" path="res://scenes/matchcircles.tscn" id="2_n7i72"]
+[ext_resource type="PackedScene" uid="uid://w32nai537ijr" path="res://scenes/MatchCircles.tscn" id="2_n7i72"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7i72"]
 bg_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
@@ -28,14 +28,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_n7i72")
 
 [node name="RoundLabel" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 231.0
+offset_left = -1.0
 offset_top = 25.0
-offset_right = 689.0
+offset_right = 1144.0
 offset_bottom = 104.0
 size_flags_vertical = 6
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_kqmhu")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -60,25 +60,31 @@ text = "Skip"
 
 [node name="ScoreS1Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 142.0
-offset_right = 515.0
-offset_bottom = 221.0
+offset_left = 47.0
+offset_top = 143.0
+offset_right = 505.0
+offset_bottom = 222.0
 size_flags_vertical = 6
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_kqmhu")
 theme_override_font_sizes/font_size = 48
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScoreS2Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 660.0
-offset_top = 114.0
-offset_right = 1118.0
-offset_bottom = 193.0
+offset_left = 645.0
+offset_top = 143.0
+offset_right = 1103.0
+offset_bottom = 222.0
 size_flags_vertical = 6
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_kqmhu")
 theme_override_font_sizes/font_size = 48
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EndButton" type="Button" parent="Panel"]
 layout_mode = 1
@@ -104,10 +110,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.071
 anchor_bottom = 0.17400001
-offset_left = 295.0
+offset_left = 6.0
 offset_top = 250.0
-offset_right = 743.208
+offset_right = 1066.208
 offset_bottom = 400.248
+grow_horizontal = 2
+horizontal_scroll_mode = 0
 
 [node name="MovesContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2

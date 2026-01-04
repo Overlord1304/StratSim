@@ -1,7 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://btyq0o2ygkl7g"]
+[gd_scene load_steps=32 format=3 uid="uid://btyq0o2ygkl7g"]
 
 [ext_resource type="Script" uid="uid://4uqb4u1dqrao" path="res://scripts/main.gd" id="1_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://d3xgkyan707li" path="res://sprites/Sprite-0005.png" id="2_sugp2"]
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="3_sugp2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
@@ -111,6 +110,29 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6xl0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muem4"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
+bg_color = Color(0, 0, 0, 0.6666667)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb6dy"]
 bg_color = Color(0.8352941, 0.8352941, 0.8352941, 1)
 border_width_left = 5
@@ -174,10 +196,39 @@ tracks/1/keys = {
 "values": [Vector2(1152, 0), Vector2(576, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_gqmmt"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("S1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-576, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("S2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 0), Vector2(1152, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbgi4"]
 _data = {
 &"RESET": SubResource("Animation_sugp2"),
-&"close": SubResource("Animation_jyhfs")
+&"close": SubResource("Animation_jyhfs"),
+&"open": SubResource("Animation_gqmmt")
 }
 
 [node name="Node2D" type="Node2D"]
@@ -195,27 +246,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -74.0
-offset_top = -68.0
-offset_right = 74.0
-offset_bottom = 68.0
+offset_left = -186.0
+offset_top = 41.0
+offset_right = -38.0
+offset_bottom = 177.0
 grow_horizontal = 2
 grow_vertical = 2
+tooltip_text = "Play"
+theme_override_font_sizes/font_size = 96
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbgi4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0wfyh")
-icon = ExtResource("2_sugp2")
+text = "▶"
 expand_icon = true
 
 [node name="S1" type="Panel" parent="Panel"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -1152.0
-offset_right = -576.0001
+offset_right = -576.00037
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tipki")
@@ -344,7 +398,63 @@ toggle_mode = true
 text = "GT
 "
 
+[node name="R" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 140.99998
+offset_right = 59.00006
+offset_bottom = 186.99998
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6610809, 0.6610809, 0.66108185, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jyhfs")
+toggle_mode = true
+text = "R"
+
+[node name="WSLS" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 141.0
+offset_right = 180.00006
+offset_bottom = 187.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+toggle_mode = true
+text = "WSLS
+"
+
+[node name="back" type="Button" parent="Panel/S1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.99994
+offset_top = -235.0
+offset_right = -124.14215
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_muem4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dp3eg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ld40")
+text = "▶"
+expand_icon = true
+
 [node name="S2" type="Panel" parent="Panel"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -454,6 +564,39 @@ toggle_mode = true
 text = "GT
 "
 
+[node name="R" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 140.99998
+offset_right = 59.00006
+offset_bottom = 186.99998
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6610809, 0.6610809, 0.66108185, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jyhfs")
+toggle_mode = true
+text = "R"
+
+[node name="WSLS" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 141.0
+offset_right = 180.00006
+offset_bottom = 187.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+toggle_mode = true
+text = "WSLS
+"
+
 [node name="ReadyS2" type="Button" parent="Panel/S2"]
 layout_mode = 1
 anchors_preset = 7
@@ -485,4 +628,67 @@ libraries = {
 &"": SubResource("AnimationLibrary_tbgi4")
 }
 
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 186.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 96
+text = "StratSim"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Help" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = 38.0
+offset_right = 166.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Help"
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbgi4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0wfyh")
+text = "?"
+expand_icon = true
+
+[node name="StratsInfo" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -147.5
+offset_right = 59.0
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Strategies Info"
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbgi4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0wfyh")
+text = "∴"
+expand_icon = true
+
 [connection signal="button_up" from="Panel/Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="Panel/S1/back" to="." method="_on_back_button_up"]
+[connection signal="button_up" from="Panel/Help" to="." method="_on_help_button_up"]
+[connection signal="button_up" from="Panel/StratsInfo" to="." method="_on_strats_info_button_up"]

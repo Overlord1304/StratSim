@@ -14,7 +14,7 @@ corner_radius_bottom_left = 20
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MoveBubble" type="Control"]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,8 +34,9 @@ grow_vertical = 2
 alignment = 1
 
 [node name="BubbleA" type="Panel" parent="HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_thel6")
 
@@ -48,14 +49,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_8o3e7")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 60
 text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="spacer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+
 [node name="BubbleB" type="Panel" parent="HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_oy1tw")
@@ -69,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_8o3e7")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 60
 text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
