@@ -56,10 +56,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_pe8jb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nwuxu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 421.0
+offset_bottom = 666.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.37254903)
 
 [connection signal="pressed" from="Panel/NextButton" to="." method="_on_next_button_pressed"]

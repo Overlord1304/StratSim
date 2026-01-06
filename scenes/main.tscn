@@ -232,7 +232,7 @@ _data = {
 &"open": SubResource("Animation_gqmmt")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["game"]]
 script = ExtResource("1_0wfyh")
 
 [node name="Panel" type="Panel" parent="."]
@@ -263,7 +263,7 @@ text = "▶"
 expand_icon = true
 
 [node name="S1" type="Panel" parent="Panel"]
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -465,6 +465,72 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_o6xl0")
 toggle_mode = true
 text = "J"
 
+[node name="A" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 262.0
+offset_right = 59.00006
+offset_bottom = 308.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6610809, 0.6610809, 0.66108185, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jyhfs")
+toggle_mode = true
+text = "A"
+
+[node name="FR" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 262.0
+offset_right = 180.00006
+offset_bottom = 308.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+toggle_mode = true
+text = "FR
+"
+
+[node name="Ma" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 262.0
+offset_right = 301.00006
+offset_bottom = 308.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tefeu")
+toggle_mode = true
+text = "Ma"
+
+[node name="Mi" type="Button" parent="Panel/S1/Panel"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 261.0
+offset_right = 422.00006
+offset_bottom = 307.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o6xl0")
+toggle_mode = true
+text = "Mi
+"
+
 [node name="back" type="Button" parent="Panel/S1"]
 layout_mode = 1
 anchors_preset = 8
@@ -488,7 +554,7 @@ text = "▶"
 expand_icon = true
 
 [node name="S2" type="Panel" parent="Panel"]
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -663,6 +729,72 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o6xl0")
 toggle_mode = true
 text = "J"
+
+[node name="A" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 262.0
+offset_right = 59.00006
+offset_bottom = 308.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6610809, 0.6610809, 0.66108185, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jyhfs")
+toggle_mode = true
+text = "A"
+
+[node name="FR" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 262.0
+offset_right = 180.00006
+offset_bottom = 308.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+toggle_mode = true
+text = "FR
+"
+
+[node name="Ma" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 262.0
+offset_right = 301.00006
+offset_bottom = 308.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tefeu")
+toggle_mode = true
+text = "Ma"
+
+[node name="Mi" type="Button" parent="Panel/S2/Panel"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 261.0
+offset_right = 422.00006
+offset_bottom = 307.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jkv2x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o6xl0")
+toggle_mode = true
+text = "Mi
+"
 
 [node name="ReadyS2" type="Button" parent="Panel/S2"]
 layout_mode = 1

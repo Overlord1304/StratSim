@@ -15,27 +15,36 @@ var s2_selected = -1
 var s1_ready_state = false
 var s2_ready_state = false
 const SAVE_PATH = "user://save_data.save"
-var tut_dialogue_seen = false
+
 
 
 func _load_save():
 	if FileAccess.file_exists(SAVE_PATH):
 		var file = FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.READ)
 		var data = file.get_var()
-		tut_dialogue_seen = data.get("tut_dialogue_seen", false)
+		Global.tut_dialogue_seen = data.get("tut_dialogue_seen", false)
+		Global.help_dialogue_seen = data.get("help_dialogue_seen",false)
+		Global.strat_dialogue_seen = data.get("strat_dialogue_seen",false)
 		file.close()
 
 func _save():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.WRITE)
-	file.store_var({"tut_dialogue_seen": tut_dialogue_seen})
+	var data = {
+		"tut_dialogue_seen": Global.tut_dialogue_seen,
+		"help_dialogue_seen": Global.help_dialogue_seen,
+		"strat_dialogue_seen": Global.strat_dialogue_seen,
+	}
+	file.store_var(data)
 	file.close()
 func _on_play_button_up() -> void:
 	$Panel/AnimationPlayer.play("close")
 	$Panel/Help.disabled = true
 	$Panel/StratsInfo.disabled = true
+	$Panel/Help.mouse_filter = $Panel/Help.MOUSE_FILTER_IGNORE
+	$Panel/StratsInfo.mouse_filter = $Panel/StratsInfo.MOUSE_FILTER_IGNORE
 func _on_help_button_up() -> void:
 	get_tree().change_scene_to_file("res://scenes/help.tscn")
-
+   
 func _on_strats_info_button_up() -> void:
 	get_tree().change_scene_to_file("res://scenes/stratsinfo1.tscn")
 func _on_back_button_up() -> void:
@@ -44,9 +53,9 @@ func _on_back_button_up() -> void:
 	$Panel/StratsInfo.disabled = false
 func _ready():
 	_load_save()
-	if !tut_dialogue_seen:
+	if !Global.tut_dialogue_seen:
 		dialogue_box.start_dialogue(dialogue)
-		tut_dialogue_seen = true
+		Global.tut_dialogue_seen = true
 		_save()
 	if Global.returning:
 		$Panel/AnimationPlayer.play("close")
@@ -61,7 +70,10 @@ func _ready():
 		preload("res://scripts/Random.gd"),
 		preload("res://scripts/Win-Stay-Lose-Shift.gd"),
 		preload("res://scripts/Tester.gd"),
-		preload("res://scripts/Joss.gd")
+		preload("res://scripts/Joss.gd"),
+		preload("res://scripts/Alternator.gd"),
+		preload("res://scripts/ForgivingRandom.gd"),
+		preload("res://scripts/Majority.gd")
 	]
 
 	
