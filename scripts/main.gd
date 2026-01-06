@@ -73,7 +73,8 @@ func _ready():
 		preload("res://scripts/Joss.gd"),
 		preload("res://scripts/Alternator.gd"),
 		preload("res://scripts/ForgivingRandom.gd"),
-		preload("res://scripts/Majority.gd")
+		preload("res://scripts/Majority.gd"),
+		preload("res://scripts/Minority.gd")
 	]
 
 	
