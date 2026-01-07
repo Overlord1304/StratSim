@@ -1,12 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyn7j8n3nolwg"]
+[gd_scene load_steps=21 format=3 uid="uid://dyn7j8n3nolwg"]
 
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://b0aadcnr0j8m6" path="res://scripts/settings.gd" id="1_r6d6q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6d6q"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p8wc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g033"]
+bg_color = Color(0.7218587, 0.7218587, 0.72185856, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_01roj"]
+LineEdit/constants/outline_size = 5
+LineEdit/font_sizes/font_size = 45
+LineEdit/fonts/font = ExtResource("1_5p8wc")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_5p8wc")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_1g033")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wm04"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p8wc"]
-bg_color = Color(0.7546566, 0.48238474, 0.78936076, 1)
+bg_color = Color(0.38675672, 0.3867566, 0.38675654, 0.9019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es4n0"]
+bg_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gis3k"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83j8s"]
+bg_color = Color(0.3882353, 0.3882353, 0.3882353, 0.9019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjs24"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am25x"]
+bg_color = Color(0.38170314, 0.38170326, 0.38170323, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ppmf"]
+bg_color = Color(0.6784314, 0.6784314, 0.6784314, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhhto"]
+bg_color = Color(0.6784314, 0.6784314, 0.6784314, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01roj"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqwn7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe2nd"]
+bg_color = Color(0, 0, 0, 0.6666667)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7kvyq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,6 +82,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r6d6q")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -47,13 +115,88 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_5p8wc")
 theme_override_font_sizes/font_size = 42
-text = "Rounds Per Match"
+text = "Rounds Per Match:"
 vertical_alignment = 1
 
 [node name="SpinBox" type="SpinBox" parent="Panel"]
 layout_mode = 0
 offset_left = 405.0
 offset_top = 176.0
-offset_right = 658.0
+offset_right = 658.345
 offset_bottom = 254.0
+theme = SubResource("Theme_01roj")
+theme_override_styles/up_background = SubResource("StyleBoxFlat_6wm04")
 theme_override_styles/up_background_hovered = SubResource("StyleBoxFlat_5p8wc")
+theme_override_styles/up_background_pressed = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/up_background_disabled = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/down_background = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/down_background_hovered = SubResource("StyleBoxFlat_83j8s")
+theme_override_styles/down_background_pressed = SubResource("StyleBoxFlat_gjs24")
+theme_override_styles/down_background_disabled = SubResource("StyleBoxFlat_am25x")
+theme_override_styles/field_and_buttons_separator = SubResource("StyleBoxFlat_4ppmf")
+theme_override_styles/up_down_buttons_separator = SubResource("StyleBoxFlat_uhhto")
+min_value = 1.0
+max_value = 1000.0
+value = 1.0
+rounded = true
+alignment = 1
+
+[node name="back" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.0
+offset_top = -241.0
+offset_right = -412.14227
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_01roj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wqwn7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oe2nd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7kvyq")
+text = "▶"
+expand_icon = true
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 244.0
+offset_right = 1762.0
+offset_bottom = 430.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_5p8wc")
+theme_override_font_sizes/font_size = 42
+text = "Round Speed                             Seconds"
+vertical_alignment = 1
+
+[node name="SpinBox2" type="SpinBox" parent="Panel"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 296.0
+offset_right = 565.345
+offset_bottom = 374.0
+theme = SubResource("Theme_01roj")
+theme_override_styles/up_background = SubResource("StyleBoxFlat_6wm04")
+theme_override_styles/up_background_hovered = SubResource("StyleBoxFlat_5p8wc")
+theme_override_styles/up_background_pressed = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/up_background_disabled = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/down_background = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/down_background_hovered = SubResource("StyleBoxFlat_83j8s")
+theme_override_styles/down_background_pressed = SubResource("StyleBoxFlat_gjs24")
+theme_override_styles/down_background_disabled = SubResource("StyleBoxFlat_am25x")
+theme_override_styles/field_and_buttons_separator = SubResource("StyleBoxFlat_4ppmf")
+theme_override_styles/up_down_buttons_separator = SubResource("StyleBoxFlat_uhhto")
+min_value = 1.0
+value = 1.0
+rounded = true
+allow_greater = true
+alignment = 1
+
+[connection signal="button_up" from="Panel/back" to="." method="_on_back_button_up"]

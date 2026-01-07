@@ -919,3 +919,4 @@ visible = false
 [connection signal="button_up" from="Panel/S1/back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="Panel/Help" to="." method="_on_help_button_up"]
 [connection signal="button_up" from="Panel/StratsInfo" to="." method="_on_strats_info_button_up"]
+[connection signal="button_up" from="Panel/Settings" to="." method="_on_settings_button_up"]

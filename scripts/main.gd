@@ -40,13 +40,18 @@ func _on_play_button_up() -> void:
 	$Panel/AnimationPlayer.play("close")
 	$Panel/Help.disabled = true
 	$Panel/StratsInfo.disabled = true
+	$Panel/Settings.disabled = true
 	$Panel/Help.mouse_filter = $Panel/Help.MOUSE_FILTER_IGNORE
 	$Panel/StratsInfo.mouse_filter = $Panel/StratsInfo.MOUSE_FILTER_IGNORE
+	$Panel/Settings.mouse_filter = $Panel/Settings.MOUSE_FILTER_IGNORE
 func _on_help_button_up() -> void:
 	get_tree().change_scene_to_file("res://scenes/help.tscn")
    
 func _on_strats_info_button_up() -> void:
 	get_tree().change_scene_to_file("res://scenes/stratsinfo1.tscn")
+func _on_settings_button_up() -> void:
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+
 func _on_back_button_up() -> void:
 	$Panel/AnimationPlayer.play("open")
 	$Panel/Help.disabled = false

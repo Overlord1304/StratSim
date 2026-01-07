@@ -29,7 +29,7 @@ func _ready():
 
 	round_label.text = "%s VS %s" % [s1.nam, s2.nam]
 
-	match_result = run_match(s1, s2, 200)
+	match_result = run_match(s1, s2, Global.rounds)
 
 	update_scores(0, 0)
 
@@ -40,6 +40,8 @@ func _ready():
 
 
 func run_match(a, b, rounds) -> Dictionary:
+	if rounds == 0:
+		rounds = 50
 	a.reset()
 	b.reset()
 
