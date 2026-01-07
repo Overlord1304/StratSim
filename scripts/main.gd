@@ -14,21 +14,22 @@ var s1_selected = -1
 var s2_selected = -1
 var s1_ready_state = false
 var s2_ready_state = false
-const SAVE_PATH = "user://save_data.save"
+var saves = "user://save_data.save"
 
 
 
 func _load_save():
-	if FileAccess.file_exists(SAVE_PATH):
-		var file = FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.READ)
+	if FileAccess.file_exists(saves):
+		var file = FileAccess.open(saves, FileAccess.ModeFlags.READ)
 		var data = file.get_var()
 		Global.tut_dialogue_seen = data.get("tut_dialogue_seen", false)
 		Global.help_dialogue_seen = data.get("help_dialogue_seen",false)
 		Global.strat_dialogue_seen = data.get("strat_dialogue_seen",false)
+		
 		file.close()
 
 func _save():
-	var file = FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.WRITE)
+	var file = FileAccess.open(saves, FileAccess.ModeFlags.WRITE)
 	var data = {
 		"tut_dialogue_seen": Global.tut_dialogue_seen,
 		"help_dialogue_seen": Global.help_dialogue_seen,
@@ -56,6 +57,10 @@ func _on_back_button_up() -> void:
 	$Panel/AnimationPlayer.play("open")
 	$Panel/Help.disabled = false
 	$Panel/StratsInfo.disabled = false
+	$Panel/Settings.disabled = false
+	$Panel/Help.mouse_filter = $Panel/Help.MOUSE_FILTER_STOP
+	$Panel/StratsInfo.mouse_filter = $Panel/StratsInfo.MOUSE_FILTER_STOP
+	$Panel/Settings.mouse_filter = $Panel/Settings.MOUSE_FILTER_STOP
 func _ready():
 	_load_save()
 	if !Global.tut_dialogue_seen:

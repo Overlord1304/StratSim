@@ -1,12 +1,37 @@
 extends Control
-var default = false
-func _ready():
-	if !default:
-		$Panel/SpinBox.value = 50
-		default = true
+var saves = "user://save_data2.save"
+func _load_save():
+	if FileAccess.file_exists(saves):
+		var file = FileAccess.open(saves, FileAccess.ModeFlags.READ)
+		var data = file.get_var()
+		$Panel/SpinBox.value = data.get("rounds", 50)
+		$Panel/SpinBox2.value = data.get("speed",50)
 
+		
+		file.close()
+
+func _save():
+	var file = FileAccess.open(saves, FileAccess.ModeFlags.WRITE)
+	var data = {
+		"rounds": $Panel/SpinBox.value,
+		"speed": $Panel/SpinBox2.value,
+	}
+	file.store_var(data)
+	file.close()
+func _ready():
+	_load_save()
 func _on_back_button_up() -> void:
+	_save()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _process(delta):
 	Global.rounds = $Panel/SpinBox.value
+	Global.speed = $Panel/SpinBox2.value
+
+
+func _on_spin_box_value_changed() -> void:
+	_save()
+
+
+func _on_spin_box_2_value_changed() -> void:
+	_save()

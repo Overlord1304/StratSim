@@ -7,3 +7,4 @@ var tut_dialogue_seen = false
 var help_dialogue_seen = false
 var strat_dialogue_seen = false
 var rounds = 0
+var speed =0

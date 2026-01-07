@@ -137,7 +137,7 @@ theme_override_styles/field_and_buttons_separator = SubResource("StyleBoxFlat_4p
 theme_override_styles/up_down_buttons_separator = SubResource("StyleBoxFlat_uhhto")
 min_value = 1.0
 max_value = 1000.0
-value = 1.0
+value = 50.0
 rounded = true
 alignment = 1
 
@@ -173,7 +173,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_5p8wc")
 theme_override_font_sizes/font_size = 42
-text = "Round Speed                             Seconds"
+text = "Round Speed                             Percent%"
 vertical_alignment = 1
 
 [node name="SpinBox2" type="SpinBox" parent="Panel"]
@@ -194,7 +194,7 @@ theme_override_styles/down_background_disabled = SubResource("StyleBoxFlat_am25x
 theme_override_styles/field_and_buttons_separator = SubResource("StyleBoxFlat_4ppmf")
 theme_override_styles/up_down_buttons_separator = SubResource("StyleBoxFlat_uhhto")
 min_value = 1.0
-value = 1.0
+value = 50.0
 rounded = true
 allow_greater = true
 alignment = 1

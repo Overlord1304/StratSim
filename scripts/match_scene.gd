@@ -89,8 +89,9 @@ func play_next_round():
 	add_move_bubble(data["A"], data["B"])
 
 	current_round += 1
-
-	await get_tree().create_timer(0.1).timeout
+	if Global.speed == 0:
+		Global.speed = 50
+	await get_tree().create_timer(0.1/pow(Global.speed / 100.0, 0.5)).timeout
 	play_next_round()
 
 func add_move_bubble(a_move:String, b_move:String):
