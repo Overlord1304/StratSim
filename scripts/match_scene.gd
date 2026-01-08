@@ -8,6 +8,7 @@ class_name Match
 @onready var moves_container = $Panel/ScrollContainer/MovesContainer
 @onready var scroll_container = $Panel/ScrollContainer
 @export var move_bubble_scene: PackedScene
+@onready var bg = $AudioStreamPlayer
 var s1
 var s2
 var match_result
@@ -23,6 +24,7 @@ const payoff = {
 }
 
 func _ready():
+	fade_in()
 	randomize()
 	s1 = Global.selected_s1
 	s2 = Global.selected_s2
@@ -94,11 +96,12 @@ func play_next_round():
 	await get_tree().create_timer(0.1/pow(Global.speed / 100.0, 0.5)).timeout
 	play_next_round()
 
-func add_move_bubble(a_move:String, b_move:String):
+func add_move_bubble(a_move:String, b_move:String,skip = false):
 	var bubble = move_bubble_scene.instantiate()
 	moves_container.add_child(bubble)
 	bubble.set_moves(a_move, b_move)
-	await get_tree().process_frame
+	if skip == false:
+		await get_tree().process_frame
 	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
 	
 
@@ -110,7 +113,7 @@ func update_scores(a:int, b:int):
 func skip_to_results():
 	while current_round < match_result["log"].size():
 		var data = match_result["log"][current_round]
-		add_move_bubble(data["A"],data["B"])
+		add_move_bubble(data["A"],data["B"],true)
 		current_round += 1
 	update_scores(match_result["scoreA"], match_result["scoreB"])
 
@@ -119,4 +122,25 @@ func skip_to_results():
 
 func go_back():
 	Global.returning = true
+	fade_out()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+func fade_in():
+	bg.volume_db = -40
+	bg.play()
+	var tween = create_tween()
+	tween.tween_property(
+		bg,
+		"volume_db",
+		0.0,
+		1.5
+	)
+func fade_out():
+	var tween = create_tween()
+	tween.tween_property(
+		bg,
+		"volume_db",
+		-40.0,
+		1.5
+	)
+	await tween.finished
+	bg.stop()

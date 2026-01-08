@@ -21,6 +21,7 @@ func _save():
 	file.close()
 func _ready():
 	_load_save()
+	$AudioStreamPlayer.play()
 func _on_back_button_up() -> void:
 	_save()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")

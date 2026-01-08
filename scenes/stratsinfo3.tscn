@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd6ennorc4aa1"]
+[gd_scene load_steps=9 format=3 uid="uid://dd6ennorc4aa1"]
 
 [ext_resource type="Script" uid="uid://cobr1uxr1tqop" path="res://scripts/stratinfo.gd" id="1_04c0w"]
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="2_07hmc"]
+[ext_resource type="AudioStream" uid="uid://6sie050fvaud" path="res://music/bg.ogg" id="3_07hmc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c3wl"]
 bg_color = Color(1, 1, 1, 1)
@@ -136,5 +137,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_pitw4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qgnrd")
 text = "▶"
 expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_07hmc")
 
 [connection signal="button_up" from="Panel/previous" to="." method="_on_previous_button_up"]

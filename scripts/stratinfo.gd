@@ -5,6 +5,7 @@ var dialogue = [
 ]
 @export var enabled_dialogue = false
 func _ready():
+	$AudioStreamPlayer.play()
 	if enabled_dialogue:
 
 		var dialogue_box = $DialogueBox

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://x3bv15cmbs7r"]
+[gd_scene load_steps=6 format=3 uid="uid://x3bv15cmbs7r"]
 
 [ext_resource type="Script" uid="uid://pbifwmv12new" path="res://scripts/match_scene.gd" id="1_3ffy2"]
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="2_kqmhu"]
 [ext_resource type="PackedScene" uid="uid://w32nai537ijr" path="res://scenes/MatchCircles.tscn" id="2_n7i72"]
+[ext_resource type="AudioStream" uid="uid://6sie050fvaud" path="res://music/bg.ogg" id="4_yeg4s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7i72"]
 bg_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
@@ -60,9 +61,9 @@ text = "Skip"
 
 [node name="ScoreS1Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 47.0
+offset_left = 20.0
 offset_top = 143.0
-offset_right = 505.0
+offset_right = 478.0
 offset_bottom = 222.0
 size_flags_vertical = 6
 theme_override_constants/outline_size = 5
@@ -122,3 +123,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yeg4s")

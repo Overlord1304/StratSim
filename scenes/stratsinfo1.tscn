@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl370bk5bh5e"]
+[gd_scene load_steps=11 format=3 uid="uid://dl370bk5bh5e"]
 
 [ext_resource type="Script" uid="uid://cobr1uxr1tqop" path="res://scripts/stratinfo.gd" id="1_47vg7"]
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="2_42461"]
 [ext_resource type="PackedScene" uid="uid://drpfcdgh2qmmp" path="res://scenes/DialogueBox.tscn" id="3_42461"]
 [ext_resource type="PackedScene" uid="uid://btyq0o2ygkl7g" path="res://scenes/main.tscn" id="4_20q8e"]
+[ext_resource type="AudioStream" uid="uid://6sie050fvaud" path="res://music/bg.ogg" id="5_traun"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c3wl"]
 bg_color = Color(1, 1, 1, 1)
@@ -165,6 +166,9 @@ visible = false
 
 [node name="Node2D" parent="." instance=ExtResource("4_20q8e")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_traun")
 
 [connection signal="button_up" from="Panel/back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="Panel/next" to="." method="_on_next_button_up"]

@@ -5,6 +5,7 @@ extends Node2D
 @onready var s1_ready = $Panel/S1/ReadyS1
 @onready var s2_ready = $Panel/S2/ReadyS2
 @onready var dialogue_box = $DialogueBox
+@onready var bg = $AudioStreamPlayer
 var dialogue = [
 	{"text": "Welcome to StratSim! A simulation based on Prisoner's Dilemma, a famous problem in game theory"},
 	{"text": "Please look at the Help Section and the Strategies Guide Section before you click Play!"}
@@ -63,6 +64,7 @@ func _on_back_button_up() -> void:
 	$Panel/Settings.mouse_filter = $Panel/Settings.MOUSE_FILTER_STOP
 func _ready():
 	_load_save()
+	$AudioStreamPlayer.play()
 	if !Global.tut_dialogue_seen:
 		dialogue_box.start_dialogue(dialogue)
 		Global.tut_dialogue_seen = true
@@ -148,4 +150,25 @@ func start_match_scene():
 	var s2 = strategies[s2_selected].new()
 	Global.selected_s1 = s1
 	Global.selected_s2 = s2
+	await fade_out()
 	get_tree().change_scene_to_file("res://scenes/MatchScene.tscn")
+func fade_in():
+	bg.volume_db = -40
+	bg.play()
+	var tween = create_tween()
+	tween.tween_property(
+		bg,
+		"volume_db",
+		0.0,
+		1.5
+	)
+func fade_out():
+	var tween = create_tween()
+	tween.tween_property(
+		bg,
+		"volume_db",
+		-40.0,
+		1.5
+	)
+	await tween.finished
+	bg.stop()

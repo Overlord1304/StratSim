@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyn7j8n3nolwg"]
+[gd_scene load_steps=22 format=3 uid="uid://dyn7j8n3nolwg"]
 
 [ext_resource type="FontFile" uid="uid://d0pvp6jwgricw" path="res://font/Fredoka-Regular.ttf" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://b0aadcnr0j8m6" path="res://scripts/settings.gd" id="1_r6d6q"]
+[ext_resource type="AudioStream" uid="uid://6sie050fvaud" path="res://music/bg.ogg" id="3_6wm04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6d6q"]
 bg_color = Color(1, 1, 1, 1)
@@ -232,6 +233,9 @@ theme_override_styles/up_down_buttons_separator = SubResource("StyleBoxFlat_uhht
 rounded = true
 allow_greater = true
 alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6wm04")
 
 [connection signal="button_up" from="Panel/back" to="." method="_on_back_button_up"]
 [connection signal="value_changed" from="Panel/SpinBox3" to="." method="_on_spin_box_3_value_changed"]
