@@ -8,3 +8,4 @@ var help_dialogue_seen = false
 var strat_dialogue_seen = false
 var rounds = 0
 var speed =0
+var noise = 0

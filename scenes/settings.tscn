@@ -199,4 +199,39 @@ rounded = true
 allow_greater = true
 alignment = 1
 
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 362.0
+offset_right = 1762.0
+offset_bottom = 548.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_5p8wc")
+theme_override_font_sizes/font_size = 42
+text = "Noise:                             Percent%"
+vertical_alignment = 1
+
+[node name="SpinBox3" type="SpinBox" parent="Panel"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 421.0
+offset_right = 428.34497
+offset_bottom = 499.0
+theme = SubResource("Theme_01roj")
+theme_override_styles/up_background = SubResource("StyleBoxFlat_6wm04")
+theme_override_styles/up_background_hovered = SubResource("StyleBoxFlat_5p8wc")
+theme_override_styles/up_background_pressed = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/up_background_disabled = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/down_background = SubResource("StyleBoxFlat_gis3k")
+theme_override_styles/down_background_hovered = SubResource("StyleBoxFlat_83j8s")
+theme_override_styles/down_background_pressed = SubResource("StyleBoxFlat_gjs24")
+theme_override_styles/down_background_disabled = SubResource("StyleBoxFlat_am25x")
+theme_override_styles/field_and_buttons_separator = SubResource("StyleBoxFlat_4ppmf")
+theme_override_styles/up_down_buttons_separator = SubResource("StyleBoxFlat_uhhto")
+rounded = true
+allow_greater = true
+alignment = 1
+
 [connection signal="button_up" from="Panel/back" to="." method="_on_back_button_up"]
+[connection signal="value_changed" from="Panel/SpinBox3" to="." method="_on_spin_box_3_value_changed"]

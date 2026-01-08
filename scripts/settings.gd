@@ -6,7 +6,7 @@ func _load_save():
 		var data = file.get_var()
 		$Panel/SpinBox.value = data.get("rounds", 50)
 		$Panel/SpinBox2.value = data.get("speed",50)
-
+		$Panel/SpinBox3.value = data.get("noise",0)
 		
 		file.close()
 
@@ -15,6 +15,7 @@ func _save():
 	var data = {
 		"rounds": $Panel/SpinBox.value,
 		"speed": $Panel/SpinBox2.value,
+		"noise": $Panel/SpinBox3.value,
 	}
 	file.store_var(data)
 	file.close()
@@ -27,7 +28,7 @@ func _on_back_button_up() -> void:
 func _process(delta):
 	Global.rounds = $Panel/SpinBox.value
 	Global.speed = $Panel/SpinBox2.value
-
+	Global.noise = $Panel/SpinBox3.value
 
 func _on_spin_box_value_changed() -> void:
 	_save()

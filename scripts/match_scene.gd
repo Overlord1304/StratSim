@@ -108,10 +108,14 @@ func update_scores(a:int, b:int):
 
 
 func skip_to_results():
+	while current_round < match_result["log"].size():
+		var data = match_result["log"][current_round]
+		add_move_bubble(data["A"],data["B"])
+		current_round += 1
 	update_scores(match_result["scoreA"], match_result["scoreB"])
 
 	end_button.visible = true
-	current_round = match_result["log"].size()
+
 
 func go_back():
 	Global.returning = true
